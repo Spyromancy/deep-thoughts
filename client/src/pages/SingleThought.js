@@ -1,8 +1,10 @@
-import { useQuery } from "@apollo/client";
-import React from "react";
-import { useParams } from "react-router-dom";
-import ReactionList from "../components/ReactionList";
-import { QUERY_THOUGHT } from "../utils/queries";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+import ReactionList from '../components/ReactionList';
+
+import { useQuery } from '@apollo/client';
+import { QUERY_THOUGHT } from '../utils/queries';
 
 const SingleThought = (props) => {
   const { id: thoughtId } = useParams();
@@ -12,9 +14,9 @@ const SingleThought = (props) => {
   });
 
   const thought = data?.thought || {};
-  console.log(thought);
+
   if (loading) {
-    return <div>Loading. . .</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -23,7 +25,7 @@ const SingleThought = (props) => {
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {thought.username}
-          </span>{" "}
+          </span>{' '}
           thought on {thought.createdAt}
         </p>
         <div className="card-body">
